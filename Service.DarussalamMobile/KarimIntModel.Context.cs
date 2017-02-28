@@ -25,6 +25,7 @@ namespace Service.DarussalamMobile
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tbl_DarusSalamBook> tbl_DarusSalamBook { get; set; }
         public virtual DbSet<tbl_DarussalamMobileUser> tbl_DarussalamMobileUser { get; set; }
     }
 }

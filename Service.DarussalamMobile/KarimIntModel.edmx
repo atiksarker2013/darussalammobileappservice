@@ -4,7 +4,24 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KARIM_INT_HOUSTONEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KARIM_INT_HOUSTONEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_DarusSalamBook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" />
+          <Property Name="Writer" Type="varchar(max)" />
+          <Property Name="Publisher" Type="varchar(max)" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OutOfStock" Type="int" />
+          <Property Name="InStock" Type="int" />
+          <Property Name="Barcode" Type="varchar(max)" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="ImagePath" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="tbl_DarussalamMobileUser">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,17 +29,38 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmailAddress" Type="varchar(max)" />
           <Property Name="Password" Type="varchar(max)" />
-          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="EntryDate" Type="date" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
         <EntityContainer Name="KARIM_INT_HOUSTONEModelStoreContainer">
+          <EntitySet Name="tbl_DarusSalamBook" EntityType="Self.tbl_DarusSalamBook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_DarussalamMobileUser" EntityType="Self.tbl_DarussalamMobileUser" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KARIM_INT_HOUSTONEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KARIM_INT_HOUSTONEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_DarusSalamBook" EntityType="KARIM_INT_HOUSTONEModel.tbl_DarusSalamBook" />
+          <EntitySet Name="tbl_DarussalamMobileUser" EntityType="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileUser" />
+        </EntityContainer>
+        <EntityType Name="tbl_DarusSalamBook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Writer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Publisher" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OutOfStock" Type="Int32" />
+          <Property Name="InStock" Type="Int32" />
+          <Property Name="Barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="tbl_DarussalamMobileUser">
           <Key>
             <PropertyRef Name="Id" />
@@ -30,26 +68,41 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityContainer Name="KARIM_INT_HOUSTONEEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tbl_DarussalamMobileUser" EntityType="Self.tbl_DarussalamMobileUser" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KARIM_INT_HOUSTONEModelStoreContainer" CdmEntityContainer="KARIM_INT_HOUSTONEEntities">
+        <EntitySetMapping Name="tbl_DarusSalamBook">
+            <EntityTypeMapping TypeName="KARIM_INT_HOUSTONEModel.tbl_DarusSalamBook">
+              <MappingFragment StoreEntitySet="tbl_DarusSalamBook">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="InStock" ColumnName="InStock" />
+                <ScalarProperty Name="OutOfStock" ColumnName="OutOfStock" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="Writer" ColumnName="Writer" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_DarussalamMobileUser">
             <EntityTypeMapping TypeName="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileUser">
               <MappingFragment StoreEntitySet="tbl_DarussalamMobileUser">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

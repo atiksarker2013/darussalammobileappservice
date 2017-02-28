@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\Users\Atiour\Documents\Visual Studio 2015\Projects\Service.DarussalamMobile\Service.DarussalamMobile\KarimIntModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\atik_\Source\Repos\darussalammobileappservice\Service.DarussalamMobile\KarimIntModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
