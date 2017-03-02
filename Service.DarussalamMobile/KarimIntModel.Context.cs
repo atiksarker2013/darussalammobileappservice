@@ -27,5 +27,6 @@ namespace Service.DarussalamMobile
     
         public virtual DbSet<tbl_DarusSalamBook> tbl_DarusSalamBook { get; set; }
         public virtual DbSet<tbl_DarussalamMobileUser> tbl_DarussalamMobileUser { get; set; }
+        public virtual DbSet<tbl_DarussalamMobileCart> tbl_DarussalamMobileCart { get; set; }
     }
 }

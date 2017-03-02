@@ -239,6 +239,7 @@
     <Compile Include="Controllers\DarussalamMobileUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\tbl_DarusSalamBookController.cs" />
+    <Compile Include="Controllers\tbl_DarussalamMobileCartController.cs" />
     <Compile Include="Controllers\tbl_DarussalamMobileUserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -267,6 +268,9 @@
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="tbl_DarusSalamBook.cs">
+      <DependentUpon>KarimIntModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_DarussalamMobileCart.cs">
       <DependentUpon>KarimIntModel.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_DarussalamMobileUser.cs">

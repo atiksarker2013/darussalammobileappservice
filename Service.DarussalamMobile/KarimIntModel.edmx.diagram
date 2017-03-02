@@ -7,6 +7,9 @@
       <Diagram DiagramId="f1c89c2219ce4e30ba5980d77dabbe47" Name="Diagram1">
         <EntityTypeShape EntityType="KARIM_INT_HOUSTONEModel.tbl_DarusSalamBook" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileUser" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileCart" Width="1.5" PointX="3" PointY="2.25" />
+        <AssociationConnector Association="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook" />
+        <AssociationConnector Association="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
