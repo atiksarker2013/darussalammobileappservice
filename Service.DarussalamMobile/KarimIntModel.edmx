@@ -48,42 +48,10 @@
           <Property Name="EntryDate" Type="date" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
-        <Association Name="FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook">
-          <End Role="tbl_DarusSalamBook" Type="Self.tbl_DarusSalamBook" Multiplicity="0..1" />
-          <End Role="tbl_DarussalamMobileCart" Type="Self.tbl_DarussalamMobileCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_DarusSalamBook">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="tbl_DarussalamMobileCart">
-              <PropertyRef Name="BookId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser">
-          <End Role="tbl_DarussalamMobileUser" Type="Self.tbl_DarussalamMobileUser" Multiplicity="0..1" />
-          <End Role="tbl_DarussalamMobileCart" Type="Self.tbl_DarussalamMobileCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_DarussalamMobileUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="tbl_DarussalamMobileCart">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="KARIM_INT_HOUSTONEModelStoreContainer">
           <EntitySet Name="tbl_DarusSalamBook" EntityType="Self.tbl_DarusSalamBook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_DarussalamMobileCart" EntityType="Self.tbl_DarussalamMobileCart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_DarussalamMobileUser" EntityType="Self.tbl_DarussalamMobileUser" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook" Association="Self.FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook">
-            <End Role="tbl_DarusSalamBook" EntitySet="tbl_DarusSalamBook" />
-            <End Role="tbl_DarussalamMobileCart" EntitySet="tbl_DarussalamMobileCart" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser" Association="Self.FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser">
-            <End Role="tbl_DarussalamMobileUser" EntitySet="tbl_DarussalamMobileUser" />
-            <End Role="tbl_DarussalamMobileCart" EntitySet="tbl_DarussalamMobileCart" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -93,15 +61,7 @@
           <EntitySet Name="tbl_DarusSalamBook" EntityType="KARIM_INT_HOUSTONEModel.tbl_DarusSalamBook" />
           <EntitySet Name="tbl_DarussalamMobileUser" EntityType="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileUser" />
           <EntitySet Name="tbl_DarussalamMobileCart" EntityType="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileCart" />
-          <AssociationSet Name="FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook" Association="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook">
-            <End Role="tbl_DarusSalamBook" EntitySet="tbl_DarusSalamBook" />
-            <End Role="tbl_DarussalamMobileCart" EntitySet="tbl_DarussalamMobileCart" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser" Association="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser">
-            <End Role="tbl_DarussalamMobileUser" EntitySet="tbl_DarussalamMobileUser" />
-            <End Role="tbl_DarussalamMobileCart" EntitySet="tbl_DarussalamMobileCart" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="tbl_DarusSalamBook">
           <Key>
             <PropertyRef Name="Id" />
@@ -118,7 +78,6 @@
           <Property Name="EntryDate" Type="DateTime" Precision="3" />
           <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tbl_DarussalamMobileCart" Relationship="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook" FromRole="tbl_DarusSalamBook" ToRole="tbl_DarussalamMobileCart" />
         </EntityType>
         <EntityType Name="tbl_DarussalamMobileUser">
           <Key>
@@ -129,7 +88,6 @@
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="EntryDate" Type="DateTime" Precision="0" />
           <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="tbl_DarussalamMobileCart" Relationship="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser" FromRole="tbl_DarussalamMobileUser" ToRole="tbl_DarussalamMobileCart" />
         </EntityType>
         <EntityType Name="tbl_DarussalamMobileCart">
           <Key>
@@ -146,34 +104,8 @@
           <Property Name="EntryDate" Type="DateTime" Precision="0" />
           <Property Name="SubmitStatus" Type="Boolean" />
           <Property Name="ProcessStatus" Type="Boolean" />
-          <NavigationProperty Name="tbl_DarusSalamBook" Relationship="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook" FromRole="tbl_DarussalamMobileCart" ToRole="tbl_DarusSalamBook" />
-          <NavigationProperty Name="tbl_DarussalamMobileUser" Relationship="KARIM_INT_HOUSTONEModel.FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser" FromRole="tbl_DarussalamMobileCart" ToRole="tbl_DarussalamMobileUser" />
         </EntityType>
-        <Association Name="FK_tbl_DarussalamMobileCart_tbl_DarusSalamBook">
-          <End Type="KARIM_INT_HOUSTONEModel.tbl_DarusSalamBook" Role="tbl_DarusSalamBook" Multiplicity="0..1" />
-          <End Type="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileCart" Role="tbl_DarussalamMobileCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_DarusSalamBook">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="tbl_DarussalamMobileCart">
-              <PropertyRef Name="BookId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbl_DarussalamMobileCart_tbl_DarussalamMobileUser">
-          <End Type="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileUser" Role="tbl_DarussalamMobileUser" Multiplicity="0..1" />
-          <End Type="KARIM_INT_HOUSTONEModel.tbl_DarussalamMobileCart" Role="tbl_DarussalamMobileCart" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_DarussalamMobileUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="tbl_DarussalamMobileCart">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

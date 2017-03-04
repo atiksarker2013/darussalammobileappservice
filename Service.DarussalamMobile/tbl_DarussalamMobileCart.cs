@@ -25,8 +25,5 @@ namespace Service.DarussalamMobile
         public Nullable<System.DateTime> EntryDate { get; set; }
         public Nullable<bool> SubmitStatus { get; set; }
         public Nullable<bool> ProcessStatus { get; set; }
-    
-        public virtual tbl_DarusSalamBook tbl_DarusSalamBook { get; set; }
-        public virtual tbl_DarussalamMobileUser tbl_DarussalamMobileUser { get; set; }
     }
 }

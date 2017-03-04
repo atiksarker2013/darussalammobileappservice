@@ -14,12 +14,6 @@ namespace Service.DarussalamMobile
     
     public partial class tbl_DarusSalamBook
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_DarusSalamBook()
-        {
-            this.tbl_DarussalamMobileCart = new HashSet<tbl_DarussalamMobileCart>();
-        }
-    
         public int Id { get; set; }
         public string Title { get; set; }
         public string Writer { get; set; }
@@ -32,8 +26,5 @@ namespace Service.DarussalamMobile
         public Nullable<System.DateTime> EntryDate { get; set; }
         public string ImagePath { get; set; }
         public string Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_DarussalamMobileCart> tbl_DarussalamMobileCart { get; set; }
     }
 }
