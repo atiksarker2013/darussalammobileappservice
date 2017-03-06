@@ -23,6 +23,11 @@ namespace Service.DarussalamMobile.Controllers
             return db.tbl_DarussalamMobileCart;
         }
 
+        public IQueryable<tbl_DarussalamMobileCart> Gettbl_DarussalamMobileCart(string orderid)
+        {
+            return db.tbl_DarussalamMobileCart.Where(m=>m.OrderId==orderid);
+        }
+
         // GET: api/tbl_DarussalamMobileCart/5
         [ResponseType(typeof(tbl_DarussalamMobileCart))]
         public async Task<IHttpActionResult> Gettbl_DarussalamMobileCart(int id)
@@ -36,18 +41,18 @@ namespace Service.DarussalamMobile.Controllers
             return Ok(tbl_DarussalamMobileCart);
         }
 
-        // GET: api/tbl_DarussalamMobileCart/5
-        [ResponseType(typeof(tbl_DarussalamMobileCart))]
-        public async Task<IHttpActionResult> Gettbl_DarussalamMobileCart(string id)
-        {
-            tbl_DarussalamMobileCart tbl_DarussalamMobileCart = await db.tbl_DarussalamMobileCart.FindAsync(id);
-            if (tbl_DarussalamMobileCart == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/tbl_DarussalamMobileCart/5
+        //[ResponseType(typeof(tbl_DarussalamMobileCart))]
+        //public async Task<IHttpActionResult> Gettbl_DarussalamMobileCart(string id)
+        //{
+        //    tbl_DarussalamMobileCart tbl_DarussalamMobileCart = await db.tbl_DarussalamMobileCart.FindAsync(id);
+        //    if (tbl_DarussalamMobileCart == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(tbl_DarussalamMobileCart);
-        }
+        //    return Ok(tbl_DarussalamMobileCart);
+        //}
 
         // PUT: api/tbl_DarussalamMobileCart/5
         [ResponseType(typeof(void))]
